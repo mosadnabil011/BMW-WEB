@@ -96,6 +96,12 @@ font-size: 18px;
     transform: scaleX(1);
     transform-origin: right;
 }
+
+.header-list a:active span:nth-child(1){
+    transform: scaleX(1);
+    transform-origin: right;
+}
+
 .header-list a span:nth-child(2){
     right: 0;
     top: 0;
@@ -109,6 +115,10 @@ font-size: 18px;
     transform: scaleX(1);
     transform-origin: left;
 }
+.header-list a:active span:nth-child(2){
+    transform: scaleX(1);
+    transform-origin: left;
+}
 .header-list a span:nth-child(3){
     right: 0;
     top: 0;
@@ -119,6 +129,11 @@ font-size: 18px;
     transition: transform .5s;
     transition-delay: .4s;
 }
+.header-list a:active span:nth-child(3){
+    transform: scaley(1);
+    transform-origin: top;
+}
+
 .header-list a:hover span:nth-child(3){
     transform: scaley(1);
     transform-origin: top;
@@ -133,6 +148,12 @@ font-size: 18px;
     transition: transform .5s;
     transition-delay: .4s;
 }
+
+.header-list a:active span:nth-child(4){
+    transform: scaley(1);
+    transform-origin: top;
+}
+
 .header-list a:hover span:nth-child(4){
     transform: scaley(1);
     transform-origin: top;
@@ -147,6 +168,12 @@ font-size: 18px;
     transition: transform .5s;
     transition-delay: .8s;
 }
+
+.header-list a:active span:nth-child(5){
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 .header-list a:hover span:nth-child(5){
     transform: scaleX(1);
     transform-origin: left;
@@ -160,7 +187,13 @@ font-size: 18px;
     transform: scaleX(0);
     transition: transform .5s;
     transition-delay: .8s;
+} 
+
+.header-list a:active span:nth-child(6){
+    transform: scaleX(1);
+    transform-origin: right;
 }
+
 .header-list a:hover span:nth-child(6){
     transform: scaleX(1);
     transform-origin: right;
@@ -332,6 +365,20 @@ color: #1c6394;
     color: white;
     border: 1px solid #000000;
 }
+
+.header-list a.active {
+    color: #2079b8;
+    text-shadow: 0 0 5px #2079b8;
+}
+
+/* إبقاء الحدود المضيئة للعنصر النشط */
+.header-list a.active span {
+    transform: scaleX(1) !important;
+    transform-origin: right;
+    background-color: #2079b8;
+    box-shadow: 0 0 5px #2079b8;
+}
+
 /* /////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 .car-container{
     margin: 3% 5%;
@@ -343,6 +390,7 @@ color: #1c6394;
 .car-image{
     position: relative;
     width: 440px;
+    /* width: 27.7%; */
     height: 57vh;
     overflow: hidden;
 }
@@ -524,7 +572,6 @@ color: #1c6394;
     font-size: 25px;
 }
 .hover-icon-icon:hover {
-    /* box-shadow:0px 0px 5px 5px #2aa6df81 inset; */
     color:#ff1c37 ;
     cursor: pointer;
 }
@@ -536,7 +583,6 @@ color: #1c6394;
     width: 100%;
     margin-top: 2%;
     padding: 3% 10%;
-    /* background-color: #2079b888; */
     background-color: #5594c151;
     display: flex;
     flex-wrap: wrap;

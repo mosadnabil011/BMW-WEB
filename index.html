@@ -20,7 +20,7 @@
             </div>
                 <div class="items">
                     <ul class="header-list">
-                        <li><a href="#">Home
+                        <li><a href="index.html" class="home-link">Home
                             <span></span>
                             <span></span>
                             <span></span>
@@ -28,7 +28,7 @@
                             <span></span>
                             <span></span>
                         </a></li>
-                        <li><a href="#">Models 
+                        <li><a href="Models.html">Models 
                             <span></span>
                             <span></span>
                             <span></span>
@@ -164,7 +164,7 @@
                     <div class="trending-item-cars">
                         <div class="front">
                             <!-- <img src="img/169947.jpg" alt="Car Front" draggable="false"> -->
-                            <img src="img/hamda-2.jpg" alt="">
+                            <img src="img/hamda-2.jpg" alt="" draggable="false">
                         </div>
                         <div class="back">
                             <img src="img/167375.jpg" alt="Car Back" draggable="false">
@@ -502,10 +502,67 @@
                                 </div>
                             </div>
                             <div class="footer-copyrigh">
-                                <p>Copyright &copy; 2023 All rights reserved | This template is made with <i class="fa-solid fa-heart fa-beat" style="color:  rgb(243, 54, 54);"></i> by <span>BMW</span></p>
+                                <p>Copyright &copy; 2025 All rights reserved | This template is made with <i class="fa-solid fa-heart fa-beat" style="color:  rgb(243, 54, 54);"></i> by <span>BMW</span></p>
                                 <img src="img/power-removebg-preview.png" alt="" width="130" draggable="false">
                             </div>
                         </div>
                     </footer>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const links = document.querySelectorAll(".header-list a");
+                    
+                            // تحديد رابط الصفحة الرئيسية
+                            const homeLink = document.querySelector(".header-list a.home-link");
+                    
+                            // استرجاع الصفحة النشطة من Local Storage
+                            let activePage = localStorage.getItem("activePage");
+                    
+                            // إذا لم يكن هناك صفحة محفوظة (أول مرة تحميل)، حدد الصفحة الرئيسية
+                            if (!activePage) {
+                                activePage = homeLink.href;
+                                localStorage.setItem("activePage", activePage);
+                                homeLink.classList.add("active");
+                                showBorders(homeLink); // تفعيل التأثير الخاص بالـ Hover على Home
+                            }
+                    
+                            links.forEach(link => {
+                                // مقارنة الرابط الحالي مع الرابط المخزن وتعيين الكلاس 'active'
+                                if (link.href === activePage) {
+                                    link.classList.add("active");
+                                    showBorders(link);
+                                }
+                    
+                                link.addEventListener("click", function() {
+                                    // إزالة الكلاس 'active' من جميع الروابط
+                                    links.forEach(l => {
+                                        l.classList.remove("active");
+                                        hideBorders(l);
+                                    });
+                    
+                                    // إضافة الكلاس 'active' للعنصر المحدد
+                                    this.classList.add("active");
+                                    showBorders(this);
+                    
+                                    // تخزين الرابط في Local Storage
+                                    localStorage.setItem("activePage", this.href);
+                                });
+                            });
+                    
+                            function showBorders(link) {
+                                let spans = link.querySelectorAll("span");
+                                spans.forEach(span => {
+                                    span.style.transform = "scaleX(1)";
+                                });
+                            }
+                    
+                            function hideBorders(link) {
+                                let spans = link.querySelectorAll("span");
+                                spans.forEach(span => {
+                                    span.style.transform = "scaleX(0)";
+                                });
+                            }
+                        });
+                    </script>
+                    
     </body>
 </html>
